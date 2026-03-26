@@ -4,50 +4,59 @@ import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+import toast from "react-hot-toast";
 
 type LoginFormValues = {
-  name: string
-  email: string
+ email: string
   password: string
-  photoUrl?: string
+
 }
 
 export default function Login() {
-  // Use 'register' instead of 'control' since we aren't using shadcn's FormField
+
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormValues>({
     defaultValues: {
-      name: "",
-      email: "",
+     email: "",
       password: "",
-      photoUrl: ""
+     
     }
   });
 
-  // Data Fetching Logic
+  // Data Fetching 
   const onSubmit = async (data: LoginFormValues) => {
-     console.log(data)
+     try {
+       const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/login`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        credentials:"include",
+        body:JSON.stringify(data)
+
+       })
+       const loginInfo = await res.json()
+       console.log(loginInfo)
+
+       if(res.ok){
+        toast.success("login successfull")
+       }
+     } catch (error) {
+      console.log(error)
+      
+     }
   };
 
   return (
     <div>
       <Card className="w-full max-w-sm mx-auto mt-10">
         <CardHeader>
-          <CardTitle>Login / Register</CardTitle>
+          <CardTitle>
+            <h3 className="text-center text-3xl font-bold">Login page</h3>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {/* Standard HTML form works perfectly with shadcn UI components */}
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             
-            {/* Name */}
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input 
-                id="name"
-                placeholder="John Doe" 
-                {...register("name", { required: "Name is required" })} 
-              />
-              {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
-            </div>
+          
 
             {/* Email */}
             <div className="space-y-2">
@@ -77,7 +86,7 @@ export default function Login() {
 
             <CardFooter className="flex flex-col gap-2 p-0 pt-4">
               <Button type="submit" className="w-full">
-                Login / Register
+                Login
               </Button>
               <Button variant="outline" type="button" className="w-full">
                 Login with Google
