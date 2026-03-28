@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function UserPage() {
+export default function AdminPage() {
   return (
     <div>
-      
+      admin page
     </div>
   )
 }
