@@ -13,8 +13,10 @@ interface NavItem {
 
 const adminNav: NavItem[] = [
   { label: "Overview", href: "/dashboard/admin", icon: "📊" },
-  { label: "All Users", href: "/dashboard/admin/users", icon: "👥" },
-  { label: "All Properties", href: "/dashboard/admin/properties", icon: "🏘️" },
+  { label: "All Users", href: "/dashboard/admin/all-user", icon: "👥" },
+  { label: "All Properties", href: "/dashboard/admin/all-property", icon: "🏘️" },
+  { label: "Add Properties", href: "/dashboard/admin/add-property", icon: "🏘️" },
+  { label: "Add Agent", href: "/dashboard/admin/add-agent", icon: "🏘️" },
 ];
 
 const agentNav: NavItem[] = [

@@ -43,11 +43,7 @@ export const registerUser = async(payload:Partial<IUser>)=>{
 
 
 export const getMe = async()=>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user`,{
-        method:"PATCH",
-        headers:{
-            "Content-Type":"application/json"
-        },
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/me`,{
         credentials:"include"
     })
 

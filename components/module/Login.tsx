@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 type LoginFormValues = {
  email: string
@@ -13,7 +14,7 @@ type LoginFormValues = {
 }
 
 export default function Login() {
-
+  const router = useRouter()
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormValues>({
     defaultValues: {
      email: "",
@@ -37,6 +38,8 @@ export default function Login() {
 
        if(res.ok){
         toast.success("login successfull")
+        router.push("/")
+        
        }
      } catch (error) {
       console.log(error)

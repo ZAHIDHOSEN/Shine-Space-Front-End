@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const loadUser = async () => {
       await fetchUser();
     };
-    // loadUser();
+    loadUser();
   }, []);
 
   const logOut = async (): Promise<void> => {

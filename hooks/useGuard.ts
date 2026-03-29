@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 
 
-export const useGuard = (allowedRoles?: Role)=>{
+export const useGuard = (allowedRoles?: Role[])=>{
    const {user,isLoading,isAuthenticated} = useAuth();
    const router = useRouter();
 
