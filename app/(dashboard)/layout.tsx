@@ -7,10 +7,10 @@ export default function DashboardLayout({children}:{children:React.ReactNode}) {
   return (
       
          <div className='flex gap-5'>
-        <div className='w-3xl'>
+        <div>
          <Sidebar></Sidebar>
         </div>
-        <div>
+        <div className='max-w-7xl w-full mx-auto my-5'>
            {children}
       </div>
   

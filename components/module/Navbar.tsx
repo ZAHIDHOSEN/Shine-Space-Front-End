@@ -1,6 +1,4 @@
 "use client"
-
-import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useAuth, useRole } from "@/stores/AuthContext"
@@ -9,7 +7,7 @@ export default function Navbar() {
   const {user,isAuthenticated,logOut} = useAuth()
   console.log(isAuthenticated)
   const {isAdmin,isAgent,isUser} = useRole()
-  const [open, setOpen] = useState(false)
+
   
 
   const getDashboardLink = ()=>{
@@ -117,7 +115,7 @@ export default function Navbar() {
           <Link href="/about" className="text-sm text-gray-600 hover:text-[#1a3c5e] font-medium transition-colors">
             About
           </Link>
-          <Link href="/Property" className="text-sm text-gray-600 hover:text-[#1a3c5e] font-medium transition-colors">
+          <Link href="/property" className="text-sm text-gray-600 hover:text-[#1a3c5e] font-medium transition-colors">
             Property
           </Link>
         </div>

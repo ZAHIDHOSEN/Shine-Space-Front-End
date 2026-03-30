@@ -1,9 +1,11 @@
-import React from 'react'
+import AddProperty from "@/components/module/property/AddProperty";
 
-export default function AddProperty() {
+
+export default function AddPropertyPage() {
+  
   return (
     <div>
-      add property admin
+      <AddProperty></AddProperty>
     </div>
   )
 }

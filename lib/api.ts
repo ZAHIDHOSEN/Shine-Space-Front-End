@@ -1,4 +1,4 @@
-import { IUser } from "@/types";
+import { IProperty, IUser } from "@/types";
 
 
 // auth
@@ -66,12 +66,12 @@ export const updateUser = async(id:string,payload:Partial<IUser>)=>{
 }
 
 
-export const getAllUser = async()=>{
+export const getAllUserApi = async()=>{
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user`,{
         credentials:"include"
     })
 
-    return await res.json()
+    return res.json()
 }
 
 
@@ -87,6 +87,21 @@ export const promoteToAgent = async (id:string) => {
 
 
 // property
+
+
+export const AddPropertyApi = async(payload:Partial<IProperty>)=>{
+   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/property`,{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        credentials:"include",
+        body:JSON.stringify(payload)
+
+    })
+
+    return await res.json()
+}
 
 
 
