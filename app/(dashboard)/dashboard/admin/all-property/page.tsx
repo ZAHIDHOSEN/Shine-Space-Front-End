@@ -1,9 +1,14 @@
-import React from 'react'
+import AllProperty from "@/components/module/dashboard/AllProperty";
 
-export default function AllProperty() {
+
+export default function AllPropertyPage() {
+  
+    
+
+
   return (
-    <div>
-      All property page
-    </div>
+     <div className="w-full max-w-7xl mx-auto">
+      <AllProperty></AllProperty>
+     </div>
   )
 }

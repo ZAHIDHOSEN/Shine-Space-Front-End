@@ -1,5 +1,4 @@
 
-import React from 'react'
 import {
   Table,
   TableBody,
@@ -10,83 +9,62 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-]
+import { getAllUserApi } from "@/lib/server.api";
+
+import { IUser } from '@/types'
 
 export default async function AllUser() {
   
+ let users: IUser[] = [];
 
+  try {
+    const res = await getAllUserApi();
+    users = res?.data ?? [];
+  } catch (err) {
+    return (
+      <div className="text-red-500 p-4 rounded-lg bg-red-50 border border-red-200">
+        Failed to load users. Make sure you are logged in as Admin.
+      </div>
+    );
+  }  
+
+  const handleAgent = async(id:string)=>{
+
+  }
  
   return (
-    <Table>
+
+    <div>
+      <h3 className="text-2xl font-semibold text-center my-2">All Users</h3>
+          <Table>
       {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
       <TableHeader>
         <TableRow className=''>
           <TableHead className="w-[200px] text-xl font-semibold">Name</TableHead>
           <TableHead className="w-[200px] text-xl font-semibold">Email</TableHead>
           <TableHead className="w-[200px] text-xl font-semibold">Role</TableHead>
+          <TableHead className="w-[200px] text-xl font-semibold">Joined</TableHead>
+          <TableHead className="w-[200px] text-xl font-semibold">Action</TableHead>
           
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
+        {users.map((user) => (
+          <TableRow key={user._id}>
+            <TableCell className="font-medium">{user.name}</TableCell>
+            <TableCell>{user.email}</TableCell>
+            <TableCell>{user.role}</TableCell>
+            <TableCell>{user.createdAt}</TableCell>
+            
             
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
-        {/* <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
-        </TableRow> */}
       </TableFooter>
     </Table>
+    </div>
+ 
    
   
   )

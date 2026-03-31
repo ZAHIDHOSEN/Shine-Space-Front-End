@@ -1,5 +1,15 @@
 import { IProperty, IUser } from "@/types";
+// import { cookies } from "next/headers";
 
+
+
+// get server token
+
+
+// const getServerToken = async () => {
+//   const cookieStore = await cookies();
+//   return cookieStore.get("accessToken")?.value ?? "";
+// };
 
 // auth
 export const loginUser = async (payload:Partial<IUser>) => {
@@ -66,17 +76,7 @@ export const updateUser = async(id:string,payload:Partial<IUser>)=>{
 }
 
 
-export const getAllUserApi = async()=>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user`,{
-        credentials:"include"
-    })
-
-    return res.json()
-}
-
-
-
-export const promoteToAgent = async (id:string) => {
+export const promoteToAgentAPi = async (id:string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/create-agent/${id}`, {
     method: "PATCH",
     credentials: "include",
@@ -102,6 +102,40 @@ export const AddPropertyApi = async(payload:Partial<IProperty>)=>{
 
     return await res.json()
 }
+
+
+export const deletePropertyApi = async(id:string)=>{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/property/${id}`,{
+    method:"DELETE",
+    credentials:"include"
+
+
+  })
+
+  return await res.json()
+}
+
+
+export const updatePropertyApi = async(id:string,payload:Partial<IProperty>)=>{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/property/${id}`,{
+    method:"PATCH",
+    headers:{
+        "Content-Type":"application/json"
+    },
+    credentials:"include",
+    body:JSON.stringify(payload)
+
+
+  })
+
+  return await res.json()
+}
+
+
+
+
+
+
 
 
 
