@@ -6,6 +6,7 @@ const getToken = async () => {
   return cookieStore.get("accessToken")?.value ?? "";
 };
 
+// basic 
 const serverFetch = async (path: string, options: RequestInit = {}) => {
   const token = await getToken();
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}${path}`, {
@@ -30,3 +31,17 @@ export const getAllUserApi = () => serverFetch("/user");
 export const GetAllPropertyApi = () => serverFetch("/property");
 
 export const getStatsApi = () => serverFetch("/stats");
+
+export const singleUserApi = async(id:string)=>{
+  const token = await getToken();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/${id}`,{
+    method:"GET",
+    headers:{
+      "Content-Type":"application/json",
+      Cookie: `accessToken=${token}`,
+    },
+    cache: "no-store",
+  })
+
+  return res.json()
+}

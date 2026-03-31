@@ -28,8 +28,12 @@ export default async function AllUser() {
     );
   }  
 
-  const handleAgent = async(id:string)=>{
-
+  const handlePromoteAgent = async(id:string)=>{
+      try {
+        
+      } catch (error) {
+        console.log(error)
+      }
   }
  
   return (
