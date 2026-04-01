@@ -61,7 +61,7 @@ export const getMe = async()=>{
 }
 
 
-export const updateUser = async(id:string,payload:Partial<IUser>)=>{
+export const updateUserApi = async(id:string,payload:Partial<IUser>)=>{
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/${id}`,{
         method:"PATCH",

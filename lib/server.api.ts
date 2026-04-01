@@ -32,6 +32,9 @@ export const GetAllPropertyApi = () => serverFetch("/property");
 
 export const getStatsApi = () => serverFetch("/stats");
 
+export const getMeApi = ()=> serverFetch("/user/me")
+
+
 export const singleUserApi = async(id:string)=>{
   const token = await getToken();
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/${id}`,{
