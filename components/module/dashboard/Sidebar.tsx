@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 import { useAuth, useRole } from "@/stores/AuthContext";
+import { House } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -16,7 +17,7 @@ const adminNav: NavItem[] = [
   { label: "All Users", href: "/dashboard/admin/all-user", icon: "👥" },
   { label: "All Properties", href: "/dashboard/admin/all-property", icon: "🏘️" },
   { label: "Add Properties", href: "/dashboard/admin/add-property", icon: "🏘️" },
-  { label: "Add Agent", href: "/dashboard/admin/add-agent", icon: "🏘️" },
+  
 ];
 
 const agentNav: NavItem[] = [
@@ -92,7 +93,19 @@ export default function Sidebar() {
           href="/"
           className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#1a3c5e] transition-colors"
         >
-          <span>🌐</span> Public Site
+          <span>🌐</span> Home
+        </Link>
+        <Link
+          href="/about"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#1a3c5e] transition-colors"
+        >
+          <span></span> About
+        </Link>
+        <Link
+          href="/property"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#1a3c5e] transition-colors"
+        >
+          <span></span> Property
         </Link>
         <button
           onClick={logOut}
