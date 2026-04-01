@@ -1,10 +1,21 @@
 import PropertyCard from '@/components/module/property/PropertyCard'
+import { GetAllPropertyApi } from '@/lib/server.api'
+import { IProperty } from '@/types';
 import React from 'react'
 
-export default function PropertyPage() {
+export default async function PropertyPage() {
+
+    const res = await GetAllPropertyApi();
+    const properties: IProperty[] = res?.data || [];
   return (
-    <div>
-      <PropertyCard></PropertyCard>
+        <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">All Properties</h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {properties.map((property: IProperty) => (
+          <PropertyCard key={property._id} property={property} />
+        ))}
+      </div>
     </div>
   )
 }
