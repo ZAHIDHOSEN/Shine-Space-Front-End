@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic" 
 import AllUser from '@/components/module/dashboard/AllUser'
 import React from 'react'
 

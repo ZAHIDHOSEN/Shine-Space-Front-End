@@ -1,4 +1,4 @@
-
+export const dynamic = "force-dynamic" 
 import UserForm from "@/components/module/UserForm"
 import { getMeApi } from "@/lib/server.api"
 

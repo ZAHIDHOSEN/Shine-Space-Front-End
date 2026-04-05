@@ -34,6 +34,10 @@ export const getStatsApi = () => serverFetch("/stats");
 
 export const getMeApi = ()=> serverFetch("/user/me")
 
+export const getSinglePropertyApi = (id:string)=>serverFetch(`/property/${id}`)
+
+
+
 
 export const singleUserApi = async(id:string)=>{
   const token = await getToken();
@@ -48,18 +52,22 @@ export const singleUserApi = async(id:string)=>{
 
   return res.json()
 }
-export const singlePropertyApi = async(id:string)=>{
-  const token = await getToken();
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/property/${id}`,{
-    method:"GET",
-    headers:{
-      "Content-Type":"application/json",
-      Cookie: `accessToken=${token}`,
-    },
-    cache: "no-store",
-  })
+// export const singlePropertyApi = async(id:string)=>{
+//   const token = await getToken();
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/property/${id}`,{
+//     method:"GET",
+//     headers:{
+//       "Content-Type":"application/json",
+//       Cookie: `accessToken=${token}`,
+//     },
+//     credentials:"include",
+//     cache: "no-store",
+//   })
 
-  return res.json()
-}
+//   return res.json()
+// }
+
+
+
 
 

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic" 
 import AllProperty from "@/components/module/dashboard/AllProperty";
 
 

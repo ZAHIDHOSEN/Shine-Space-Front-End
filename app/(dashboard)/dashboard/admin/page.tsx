@@ -1,4 +1,4 @@
-
+export const dynamic = "force-dynamic"
 import StatsCharts from '@/components/module/dashboard/StatsCharts';
 import { getStatsApi } from '@/lib/server.api';
 import React from 'react'

@@ -6,6 +6,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 type LoginFormValues = {
  email: string
@@ -37,10 +38,26 @@ export default function Login() {
        console.log(loginInfo)
 
        if(res.ok){
+        const accessToken = loginInfo?.data?.accessToken
+        const refreshToken = loginInfo?.data?.refreshToken
+
+        if(accessToken){
+          Cookies.set("accessToken",accessToken,{expires:1})
+
+        }
+        if(refreshToken){
+          Cookies.set("refreshToken",refreshToken,{expires:15})
+        }
         toast.success("login successfull")
         router.push("/")
+        router.refresh()
         
+       }else{
+        toast.error(loginInfo?.message || "Login failed")
        }
+
+
+
      } catch (error) {
       console.log(error)
       
