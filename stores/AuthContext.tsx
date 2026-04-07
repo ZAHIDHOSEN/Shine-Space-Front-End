@@ -4,7 +4,7 @@ import { getMe, logoutUser, } from "@/lib/api";
 import { Role, IUser } from "@/types";
 import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
-
+import Cookies from "js-cookie"
 // interface for authContext
 interface AuthContextType {
   user: IUser | null;
@@ -22,17 +22,46 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [isLoading, setLoading] = useState<boolean>(true);
   const router = useRouter()
+
+  //   try {
+  //     const res = await getMe();
+  //     setUser(res.data);
+  //   } catch {
+  //     setUser(null);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+ 
+
+
+
+
   const fetchUser = async (): Promise<void> => {
     try {
-      const res = await getMe();
-      setUser(res.data);
-    } catch {
-      setUser(null);
-    } finally {
-      setLoading(false);
-    }
-  };
+        const token = Cookies.get("accessToken")
+        
 
+        if (!token) {
+            setUser(null)
+            return
+        }
+
+        const res = await getMe()
+      
+
+        if (res?.data) {
+            setUser(res.data)
+        } else {
+            setUser(null)
+        }
+    } catch (error) {
+        console.log("error →", error)
+        setUser(null)
+    } finally {
+        setLoading(false)
+    }
+}
   
   useEffect(() => {
     const loadUser = async () => {

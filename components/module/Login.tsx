@@ -7,6 +7,7 @@ import { Label } from "../ui/label";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { useAuth } from "@/stores/AuthContext";
 
 type LoginFormValues = {
  email: string
@@ -16,6 +17,8 @@ type LoginFormValues = {
 
 export default function Login() {
   const router = useRouter()
+  const {refetch} = useAuth()
+  
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormValues>({
     defaultValues: {
      email: "",
@@ -48,6 +51,9 @@ export default function Login() {
         if(refreshToken){
           Cookies.set("refreshToken",refreshToken,{expires:15})
         }
+         
+         await refetch()
+       
         toast.success("login successfull")
         router.push("/")
         router.refresh()

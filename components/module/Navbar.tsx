@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button"
 import { useAuth, useRole } from "@/stores/AuthContext"
 
 export default function Navbar() {
-  const {user,isAuthenticated,logOut} = useAuth()
-  console.log(isAuthenticated)
+  const {user,isAuthenticated,logOut,isLoading} = useAuth()
+  console.log(isAuthenticated,user)
   const {isAdmin,isAgent,isUser} = useRole()
 
   
@@ -14,8 +14,8 @@ export default function Navbar() {
     if(isAdmin) return "/dashboard/admin"
     if(isAgent) return "/dashboard/agent"
     if(isUser) return "/dashboard/user"
-    // return "/login"
-    return "/dashboard/user"
+    return "/login"
+    // return "/dashboard/user"
     
   }
   return (
@@ -122,7 +122,10 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
 
-          {isAuthenticated ? (
+          {isLoading?(
+            <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
+          )
+          :isAuthenticated ? (
             <>
               <Link
                 href={getDashboardLink()}

@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 
 export default function UserForm({me}:{me:Partial<IUser>}) {
+  
    const initialUser = {
     name:me?.name || "",
     email:me?.email || ""
