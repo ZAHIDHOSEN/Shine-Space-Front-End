@@ -5,7 +5,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import toast from "react-hot-toast";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
 
 type RegisterFormValues = {
   name: string
@@ -15,7 +16,7 @@ type RegisterFormValues = {
 }
 
 export default function Register() {
-    // const router = useRouter()
+    const router = useRouter()
   // Using register to link inputs to react-hook-form
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<RegisterFormValues>({
     defaultValues: {
@@ -41,6 +42,8 @@ export default function Register() {
        
        if(res.ok){
          toast.success("user created successfully")
+         router.push("/login")
+         
        }
         
      } catch (error) {
@@ -54,14 +57,14 @@ export default function Register() {
     <div className="flex items-center justify-center min-h-screen">
       <Card className="w-full max-w-sm mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">Create an Account</CardTitle>
+          <CardTitle className="text-2xl text-center text-[#1a3c5e]">Create an <span className="text-[#e8a838]">Account</span></CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             
             {/* Name */}
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
+              <Label htmlFor="name" className="text-[#1a3c5e]">Full Name</Label>
               <Input 
                 id="name"
                 placeholder="Zahid Hosen" 
@@ -72,7 +75,7 @@ export default function Register() {
 
             {/* Email */}
             <div className="space-y-2">
-              <Label htmlFor="email">Email Address</Label>
+              <Label htmlFor="email" className="text-[#1a3c5e]">Email Address</Label>
               <Input 
                 id="email"
                 type="email" 
@@ -90,7 +93,7 @@ export default function Register() {
 
             {/* Password */}
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-[#1a3c5e]">Password</Label>
               <Input 
                 id="password"
                 type="password" 
@@ -105,7 +108,7 @@ export default function Register() {
 
             {/* Photo URL */}
             <div className="space-y-2">
-              <Label htmlFor="photoUrl">Photo URL (Optional)</Label>
+              <Label htmlFor="photoUrl" className="text-[#1a3c5e]">Photo URL (Optional)</Label>
               <Input 
                 id="photoUrl"
                 placeholder="https://example.com/image.jpg" 
@@ -114,10 +117,10 @@ export default function Register() {
             </div>
 
             <CardFooter className="flex flex-col gap-2 p-0 pt-4">
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              <Button type="submit" className="w-full bg-[#1a3c5e] hover:bg-[#15304d]" disabled={isSubmitting}>
                 {isSubmitting ? "Registering..." : "SignUp"}
               </Button>
-              <Button variant="outline" type="button" className="w-full">
+              <Button  type="button" className="w-full bg-[#1a3c5e] hover:bg-[#15304d] mb-2">
                 SignUp with Google
               </Button>
             </CardFooter>

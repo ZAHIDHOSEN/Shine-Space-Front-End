@@ -28,7 +28,7 @@ export default function Contact() {
           <div className="w-8 h-0.5 bg-[#e8a838] rounded mb-3" />
           <h2 className="text-3xl font-medium text-[#1a3c5e] mb-3">Get in Touch</h2>
           <p className="text-gray-500 text-sm leading-relaxed mb-10">
-            Have questions about a property or need help? Reach out to our team directly — we're happy to help.
+            Have questions about a property or need help? Reach out to our team directly — were happy to help.
           </p>
 
           <div className="space-y-6">
@@ -38,7 +38,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs text-gray-400 uppercase tracking-wide mb-0.5">Email Us</p>
-                <p className="text-sm font-medium text-[#1a3c5e]">support@shinespace.com</p>
+                <p className="text-sm font-medium text-[#1a3c5e]">zahidhosen203@gmail.com</p>
               </div>
             </a>
 
@@ -48,7 +48,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs text-gray-400 uppercase tracking-wide mb-0.5">Call Anytime</p>
-                <p className="text-sm font-medium text-[#1a3c5e]">+880 1700-000000</p>
+                <p className="text-sm font-medium text-[#1a3c5e]">+880 1793397830</p>
               </div>
             </div>
 

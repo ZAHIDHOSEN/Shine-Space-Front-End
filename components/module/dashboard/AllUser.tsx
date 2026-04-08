@@ -39,7 +39,7 @@ export default async function AllUser() {
   return (
 
     <div>
-      <h3 className="text-2xl font-semibold text-center my-2">All Users</h3>
+      <h3 className="text-2xl font-semibold text-center my-2 text-[#1a3c5e]">All <span className="text-[#e8a838]"> Users</span></h3>
           <Table>
       {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
       <TableHeader>

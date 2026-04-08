@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useAuth } from "@/stores/AuthContext";
+import Link from "next/link";
 
 type LoginFormValues = {
  email: string
@@ -71,12 +72,17 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <Card className="w-full max-w-sm mx-auto mt-10">
-        <CardHeader>
-          <CardTitle>
-            <h3 className="text-center text-3xl font-bold">Login page</h3>
+    <div className="flex items-center justify-center min-h-screen bg-[#f8fafc] px-4">
+      <Card className="w-full max-w-sm mx-auto border-gray-200 shadow-none rounded-2xl">
+      <CardHeader className="text-center pb-2">
+        <h1 className="text-lg font-medium text-[#1a3c5e]">
+          Shine<span className="text-[#e8a838]"> Space</span>
+        </h1>
+        <div className="w-8 h-0.5 bg-[#e8a838] rounded mx-auto my-2"></div>
+          <CardTitle className="text-xl font-medium text-[#1a3c5e]">
+           Welcome back
           </CardTitle>
+          <p className="text-gray-400 text-sm">Sign in to your account</p>
         </CardHeader>
         <CardContent>
           {/* Standard HTML form works perfectly with shadcn UI components */}
@@ -85,8 +91,8 @@ export default function Login() {
           
 
             {/* Email */}
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+            <div className="space-y-1.5">
+              <Label htmlFor="email" className="text-xs font-medium text-[#1a3c5e]">Email</Label>
               <Input 
                 id="email"
                 type="email" 
@@ -98,7 +104,7 @@ export default function Login() {
 
             {/* Password */}
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-xs font-medium text-[#1a3c5e]">Password</Label>
               <Input 
                 id="password"
                 type="password" 
@@ -110,17 +116,19 @@ export default function Login() {
               {errors.password && <p className="text-xs text-red-500">{errors.password.message}</p>}
             </div>
 
-            <CardFooter className="flex flex-col gap-2 p-0 pt-4">
-              <Button type="submit" className="w-full">
+            <CardFooter className="flex flex-col gap-3 pt-2">
+              <Button type="submit" className="w-full bg-[#1a3c5e] hover:bg-[#15304d]">
                 Login
               </Button>
-              <Button variant="outline" type="button" className="w-full">
+              <Button type="button" className="w-full bg-[#1a3c5e] hover:bg-[#15304d]">
                 Login with Google
               </Button>
+              <p className="text-[#1a3c5e]">New User.Please  <Link className="text-[#e8a838]" href={`/register`}>signUp</Link> </p>
             </CardFooter>
           </form>
         </CardContent>
       </Card>
-    </div>
+      </div>
+
   )
 }

@@ -178,7 +178,7 @@ const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
       />
 
       {/* Submit */}
-      <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+      <button className="w-full bg-[#1a3c5e] hover:bg-[#15304d] text-white py-2 rounded-lg">
         Add Property
       </button>
     </form>
