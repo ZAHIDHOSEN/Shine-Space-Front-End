@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 import { useAuth, useRole } from "@/stores/AuthContext";
-import { House } from "lucide-react";
+import { Building2, Home, House, Info, LogOut } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -88,30 +88,30 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom */}
-      <div className="px-4 py-4 border-t border-gray-100 space-y-1">
+      <div className="px-4 py-4 border-t border-gray-200 space-y-1">
         <Link
           href="/"
           className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#1a3c5e] transition-colors"
         >
-          <span>🌐</span> Home
+          <span><Home size={18}></Home></span> Home
         </Link>
         <Link
           href="/about"
           className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#1a3c5e] transition-colors"
         >
-          <span></span> About
+          <span><Info size={18}></Info></span> About
         </Link>
         <Link
           href="/property"
           className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#1a3c5e] transition-colors"
         >
-          <span></span> Property
+          <span><Building2 size={18}></Building2></span> Property
         </Link>
         <button
           onClick={logOut}
           className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition-colors"
         >
-          <span>🚪</span> Logout
+          <span><LogOut size={18}></LogOut></span> Logout
         </button>
       </div>
     </aside>

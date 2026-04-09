@@ -16,7 +16,7 @@ export default function AboutBanner() {
         {/* Overlay Content */}
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg">
-            Discover Your <span className="text-blue-400">Dream Home</span>
+            Discover Your <span className="text-[#1a3c5e]">Dream Home</span>
           </h1>
           {/* <p className="text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">
             Explore thousands of premium listings in your favorite neighborhoods.

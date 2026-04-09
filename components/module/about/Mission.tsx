@@ -6,7 +6,7 @@ export default function Mission() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
         <div className="lg:w-1/2">
-          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-wider text-amber-500 uppercase bg-gray-100 rounded-full">
             Our Mission
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">

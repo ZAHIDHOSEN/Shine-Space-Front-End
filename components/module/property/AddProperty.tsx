@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { PropertyStatus, PropertyType } from "@/types";
 import { AddPropertyApi } from "@/lib/api";
+import toast from "react-hot-toast";
 
 
 const initialForm = {
@@ -58,13 +59,19 @@ const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
 
 
  try {
+  console.log("sending to api",formData)
     const res = await AddPropertyApi(formData)
     console.log(res)
+    if(res){
+      toast.success("property added successfully")
+      setForm(initialForm)
+    }
  } catch (error) {
     console.error(error)
+    toast.error("someting went wrong")
  }finally{
     setLoading(false)
-    setForm(initialForm)
+    
  }
 
  

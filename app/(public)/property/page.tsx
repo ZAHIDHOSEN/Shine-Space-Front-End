@@ -10,7 +10,7 @@ export default async function PropertyPage() {
     const properties: IProperty[] = res?.data || [];
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">All Properties</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center text-[#1a3c5e]">All <span className='text-[#e8a838]'>Properties</span> </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {properties.map((property: IProperty) => (

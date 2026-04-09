@@ -82,7 +82,7 @@ export default function UserForm({me}:{me:Partial<IUser>}) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+        className="w-full bg-[#1a3c5e] text-white py-2 rounded-lg hover:bg-[#15304d] transition"
       >
         {loading ? "Updating..." : "Update Profile"}
       </button>

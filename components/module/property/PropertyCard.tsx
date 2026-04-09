@@ -35,13 +35,13 @@ export default function PropertyCard({property}:{property:Partial<IProperty>}) {
         </h2>
 
         {/* Price */}
-        <p className="text-xl font-bold text-blue-600">
+        <p className="text-xl font-bold text-[#e8a838]">
           ${property.price}
         </p>
 
         {/* Button */}
         <Link href={`/property/${property._id}`}>
-          <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+          <button className="w-full bg-[#1a3c5e] text-white py-2 rounded-lg hover:bg-[#15304d] transition">
             View Details
           </button>
         </Link>

@@ -133,8 +133,8 @@ return (
             <TableCell className="font-medium">{property.title}</TableCell>
             <TableCell>{property.status}</TableCell>
             <TableCell>{property.createdAt}</TableCell>
-            <TableCell><Button onClick={()=>handleEditClick(property)}>Update</Button></TableCell>
-            <TableCell><Button onClick={()=>handlePropertyDelete(property._id)}>Delete</Button></TableCell>
+            <TableCell><Button className="bg-[#e8a838] hover:bg-[#e8a839]" onClick={()=>handleEditClick(property)}>Update</Button></TableCell>
+            <TableCell><Button className="bg-[#1a3c5e] hover:bg-[#15304d]" onClick={()=>handlePropertyDelete(property._id)}>Delete</Button></TableCell>
          </TableRow>
         ))}
       </TableBody>
@@ -263,13 +263,13 @@ return (
 
               <div className="flex gap-3 pt-2">
                 <Button type="submit" disabled={updating} 
-                  className="flex-1 border border-gray-200 text-gray-600 py-2.5 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                  className="flex-1 bg-[#1a3c5e] hover:bg-[#15304d]  py-2.5 rounded-lg font-semibold  transition-colors">
                      {updating ? "Saving..." : "Save Changes"}
                 </Button>
                 <Button
                   type="button"
                   onClick={() => setEditTarget(null)}
-                  className="flex-1 border border-gray-200 text-gray-600 py-2.5 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                  className="flex-1  py-2.5 rounded-lg font-semibold bg-red-500 hover:bg-red-700 transition-colors"
                 >
                   Cancel
                 </Button>
