@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { IProperty } from "@/types";
 
-const getToken = async () => {
+export const getToken = async () => {
   const cookieStore = await cookies();
   return cookieStore.get("accessToken")?.value ?? "";
 };
