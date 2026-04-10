@@ -17,6 +17,7 @@ const adminNav: NavItem[] = [
   { label: "All Users", href: "/dashboard/admin/all-user", icon: "👥" },
   { label: "All Properties", href: "/dashboard/admin/all-property", icon: "🏘️" },
   { label: "Add Properties", href: "/dashboard/admin/add-property", icon: "🏘️" },
+  { label: "My Profile", href: "/dashboard/admin/my-profile", icon: "🏘️" },
   
 ];
 
