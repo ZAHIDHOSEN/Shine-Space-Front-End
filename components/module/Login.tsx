@@ -19,11 +19,13 @@ type LoginFormValues = {
 export default function Login() {
   const router = useRouter()
   const {refetch} = useAuth()
+
   
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormValues>({
+  
+  const { register, handleSubmit,setValue, formState: { errors } } = useForm<LoginFormValues>({
     defaultValues: {
      email: "",
-      password: "",
+     password: "",
      
     }
   });
@@ -67,9 +69,58 @@ export default function Login() {
 
      } catch (error) {
       console.log(error)
+      toast.error("An error occurred during login")
       
      }
   };
+
+  const handleAdmin = async()=>{
+    try {
+      const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL as string
+      const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASS as string
+
+      if(!adminEmail || !adminPassword){
+        toast.error("admin credential is missing")
+      }
+      
+      // setValue("email",adminEmail)
+      // setValue("password",adminPassword)
+      // handleSubmit(onSubmit)()
+      await onSubmit({
+        email:adminEmail,
+        password:adminPassword
+      })
+      
+    } catch (error) {
+      console.log(error)
+      toast.error("error,some problem in login with admin",)
+    }
+  }
+
+
+  const handleAgent = async()=>{
+    try {
+        const agentEmail = process.env.NEXT_PUBLIC_AGENT_EMAIL as string
+        const agentPassword = process.env.NEXT_PUBLIC_AGENT_PASS as string
+
+        if(!agentEmail || !agentPassword){
+          toast.error("some problem in agent email or password")
+        }
+
+        await onSubmit({
+          email:agentEmail,
+          password:agentPassword
+        })
+
+
+    } catch (error) {
+      console.log(error)
+      toast.error("something went wrong")
+      
+    }
+  }
+
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#f8fafc] px-4">
@@ -120,8 +171,11 @@ export default function Login() {
               <Button type="submit" className="w-full bg-[#1a3c5e] hover:bg-[#15304d]">
                 Login
               </Button>
-              <Button type="button" className="w-full bg-[#1a3c5e] hover:bg-[#15304d]">
-                Login with Google
+              <Button type="button" onClick={()=>handleAdmin()} className="w-full bg-[#1a3c5e] hover:bg-[#15304d]">
+                Login As Admin
+              </Button>
+              <Button type="button" onClick={()=>handleAgent()} className="w-full bg-[#1a3c5e] hover:bg-[#15304d]">
+                Login As Agent
               </Button>
               <p className="text-[#1a3c5e]">New User.Please  <Link className="text-[#e8a838]" href={`/register`}>signUp</Link> </p>
             </CardFooter>
