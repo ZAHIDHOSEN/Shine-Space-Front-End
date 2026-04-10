@@ -1,9 +1,10 @@
+import AddProperty from '@/components/module/property/AddProperty'
 import React from 'react'
 
-export default function AddProperty() {
+export default function AddPropertyPage() {
   return (
     <div>
-      add property for agent
+      <AddProperty></AddProperty>
     </div>
   )
 }

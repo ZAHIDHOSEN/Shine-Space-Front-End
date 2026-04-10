@@ -21,13 +21,13 @@ const adminNav: NavItem[] = [
 ];
 
 const agentNav: NavItem[] = [
-  { label: "My Properties", href: "/dashboard/agent", icon: "🏠" },
+  { label: "My Profile", href: "/dashboard/agent", icon: "🏠" },
   { label: "Add Property", href: "/dashboard/agent/add-property", icon: "➕" },
 ];
 
 const userNav: NavItem[] = [
-  { label: "Browse Properties", href: "/dashboard/user", icon: "🔍" },
-  { label: "My Profile", href: "/dashboard/user/profile", icon: "👤" },
+  // { label: "Browse Properties", href: "/dashboard/user", icon: "🔍" },
+  { label: "My Profile", href: "/dashboard/user", icon: "👤" },
 ];
 export default function Sidebar() {
   const pathname = usePathname();

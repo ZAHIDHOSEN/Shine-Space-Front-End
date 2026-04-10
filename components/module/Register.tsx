@@ -6,6 +6,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 type RegisterFormValues = {
@@ -47,6 +48,7 @@ export default function Register() {
        }
         
      } catch (error) {
+      toast.error("some problem to crete user.Try again")
         console.log(error)
         
      }
@@ -120,9 +122,10 @@ export default function Register() {
               <Button type="submit" className="w-full bg-[#1a3c5e] hover:bg-[#15304d]" disabled={isSubmitting}>
                 {isSubmitting ? "Registering..." : "SignUp"}
               </Button>
-              <Button  type="button" className="w-full bg-[#1a3c5e] hover:bg-[#15304d] mb-2">
+              {/* <Button  type="button" className="w-full bg-[#1a3c5e] hover:bg-[#15304d] mb-2">
                 SignUp with Google
-              </Button>
+              </Button> */}
+                <p className="text-[#1a3c5e]">Old User.Please<Link className="text-[#e8a838]" href={`/login`}> Login</Link> </p>
             </CardFooter>
           </form>
         </CardContent>
