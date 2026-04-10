@@ -24,6 +24,7 @@ const adminNav: NavItem[] = [
 const agentNav: NavItem[] = [
   { label: "My Profile", href: "/dashboard/agent", icon: "🏠" },
   { label: "Add Property", href: "/dashboard/agent/add-property", icon: "➕" },
+   { label: "All Properties", href: "/dashboard/agent/all-property", icon: "🏘️" },
 ];
 
 const userNav: NavItem[] = [

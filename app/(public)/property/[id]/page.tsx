@@ -5,8 +5,6 @@ import Image from "next/image"
 import { redirect } from "next/navigation"
 
 
- 
-
 export default async function PropertyDetails({params}:{params:Promise<{id:string}>}) {
     const {id} = await params
     const token =await getToken()
@@ -14,9 +12,20 @@ export default async function PropertyDetails({params}:{params:Promise<{id:strin
     if(!token){
       redirect("/login")
     }
-    const res = await getSinglePropertyApi(id)
-    const property = await res.data
-  
+
+    let property = null
+    
+
+    try {
+       const res = await getSinglePropertyApi(id)
+       property = await res.data
+      
+    } catch (error) {
+      console.log(error)
+      redirect("/login")
+    }
+   
+  if(!property) return null
   
   return (
 
