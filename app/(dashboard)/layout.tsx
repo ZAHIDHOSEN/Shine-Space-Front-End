@@ -1,12 +1,13 @@
 
 import Sidebar from '@/components/module/dashboard/Sidebar'
+import ProtectedRoute from '@/components/module/ProtectedRoute'
 
 import React from 'react'
 
 export default function DashboardLayout({children}:{children:React.ReactNode}) {
   return (
-      
-      <div className='flex h-screen overflow-hidden bg-gray-50 gap-5'>
+      <ProtectedRoute>
+              <div className='flex h-screen overflow-hidden bg-gray-50 gap-5'>
         <div className='hidden md:flex flex-col w-64 bg-white border-r'>
          <Sidebar></Sidebar>
         </div>
@@ -22,6 +23,8 @@ export default function DashboardLayout({children}:{children:React.ReactNode}) {
      
   
     </div>
+      </ProtectedRoute>
+    
    
   
  
