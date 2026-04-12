@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic" 
 import AdminForm from '@/components/module/dashboard/AdminForm'
 import { getMeApi } from '@/lib/server.api'
 import React from 'react'
