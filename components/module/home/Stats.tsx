@@ -1,3 +1,4 @@
+
 const stats = [
   { label: "Properties Sold", value: "2,500+" },
   { label: "Verified Agents", value: "450+" },

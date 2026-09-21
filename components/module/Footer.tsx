@@ -22,7 +22,7 @@ export default function Footer() {
           <h3 className="font-semibold text-white mb-3">Company</h3>
           <ul className="space-y-2 text-sm">
             <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/agents">Our Agents</Link></li>
+            {/* <li><Link href="/agents">Our Agents</Link></li> */}
             <li><Link href="/property">Properties</Link></li>
           </ul>
         </div>
@@ -41,7 +41,10 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-white mb-3">Contact</h3>
           <ul className="space-y-2 text-sm">
-            <li>Email: zahidhosen203@gamil.com</li>
+            Email:{" "}
+              <a href="mailto:zahidhosen203@gmail.com" className="hover:text-white transition-colors">
+                zahidhosen203@gmail.com
+              </a>
             <li>Phone: +880 1793397830</li>
             <li>Location: Bangladesh</li>
           </ul>
