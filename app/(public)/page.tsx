@@ -1,4 +1,5 @@
 import Banner from "@/components/module/home/Banner";
+import Cities from "@/components/module/home/City";
 import Contact from "@/components/module/home/Contact";
 import Faq from "@/components/module/home/Faq";
 import FeaturedProperties from "@/components/module/home/FeaturedProperties";
@@ -19,6 +20,7 @@ export default function Home() {
        <Review></Review>
        <Faq></Faq>
        <FeaturedProperties></FeaturedProperties>
+       <Cities></Cities>
        <Contact></Contact>
       
      </div>
