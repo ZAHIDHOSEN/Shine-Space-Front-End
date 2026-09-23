@@ -1,6 +1,7 @@
 import Banner from "@/components/module/home/Banner";
 import Contact from "@/components/module/home/Contact";
 import Faq from "@/components/module/home/Faq";
+import FeaturedProperties from "@/components/module/home/FeaturedProperties";
 import Features from "@/components/module/home/Features";
 
 import Review from "@/components/module/home/Review";
@@ -17,6 +18,7 @@ export default function Home() {
        <Stats></Stats>
        <Review></Review>
        <Faq></Faq>
+       <FeaturedProperties></FeaturedProperties>
        <Contact></Contact>
       
      </div>
