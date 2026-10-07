@@ -3,21 +3,25 @@ import Link from "next/link";
 import { GetAllPropertyApi } from "@/lib/server.api";
 import { IProperty } from "@/types";
 
-const cities = [
-  { name: "Dhaka", img: "/cities/dhaka.jpg" },
-  { name: "Chattogram", img: "/cities/chattogram.jpg" },
-  { name: "Rajshahi", img: "/cities/rajshahi.jpg" },
-  { name: "Chapai Nawabganj", img: "/cities/chapai.jpg" },
-];
+const cityImages: Record<string, string> = {
+  Dhaka: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80",
+  Chittagong: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=800&q=80",
+  Rajshahi: "https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=800&q=80",
+  "Chapai Nawabganj": "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?w=800&q=80",
+};
 
 export default async function Cities() {
   const res = await GetAllPropertyApi();
   const properties: IProperty[] = res?.data || [];
 
-  const list = cities.map((c) => ({
-    ...c,
-    count: properties.filter((p: any) => p.city === c.name).length,
-  }));
+ const cityNames = [...new Set(properties.map((p) => p.location.city))];
+
+ const list = cityNames.map((name) => ({
+  name,
+  img: cityImages[name] || "/cities/default.jpg",
+  count: properties.filter((p) => p.location.city === name).length,
+}));
+
 
   return (
     <section className="bg-gray-50 py-16">
